@@ -1,18 +1,18 @@
 # TFMU
 
-The personal collection of weird behaviors and cryptic bugs of Tensorflow that totally fucks me up.
+*The personal collection of weird behaviors and cryptic bugs of Tensorflow that totally fucks me up.*
 
 -----
 
 ## 1. tf.one_hot
 
-*Behavior* : `tf.one_hot()` will crash under certain circumstances if the `indices` parameter is a `tf.uint8` type tensor.
+**Behavior** : `tf.one_hot()` will crash under certain circumstances if the `indices` parameter is a `tf.uint8` type tensor.
 
-This is actually a bug, but the error message is so cryptic that I wasted a whole day on finding this.
+This is actually a bug, but the error message is so cryptic (`[tensor.h] Check failed: new_num_elements == NumElements()`) that I wasted a whole day on finding this.
 
 Please refer to this issue: https://github.com/tensorflow/tensorflow/issues/26099
 
-*How to resolve*: Cast the tensor to `tf.int32`.
+**How to resolve**: Cast the tensor to `tf.int32`.
 
 -----
 
